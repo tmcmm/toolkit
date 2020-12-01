@@ -1,0 +1,7 @@
+{% for tool in tools%}
+function {{tool.alias}} () { docker run {% if tool.privileged is defined and tool.privileged is true %}--privileged {% endif %}{{ tool.run_interaction | default(defaults.run_interaction)}} {{ tool.run_user | default(defaults.run_user) }} {{ tool.run_vols | default(defaults.run_vols) }} {{ tool.run_add_vols | default(defaults.run_add_vols) }} {{ tool.run_workdir | default(defaults.run_workdir) }} {{ tool.run_envs | default(defaults.run_envs) }} {{ tool.run_ports | default(defaults.run_ports) }} {{ tool.image | default(defaults.image) }} {{ tool.command | default(tool.alias) }} "$@"; }
+export -f {{tool.alias}}
+{% endfor %}
+{% set names = [] %}{%- for tool in tools -%}{%- do names.append(tool.alias) -%}
+{%- endfor -%}
+function list () { echo {{ names }}; }

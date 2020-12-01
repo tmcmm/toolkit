@@ -1,0 +1,80 @@
+---
+
+tools:
+  - alias: mvn
+    image: nexus.grupocgd.com:8444/cgd/maven
+    run_envs: '-e HOME=$HOME -e MAVEN_CONFIG=$HOME'
+
+  - alias: dockerfile_lint
+    image: nexus.grupocgd.com:8443/projectatomic/dockerfile-lint
+
+  - alias: ansible
+    image: nexus.grupocgd.com:8444/cgd/ansible
+
+  - alias: ansible-playbook
+    image: nexus.grupocgd.com:8444/cgd/ansible
+    run_user: ''
+
+  - alias: ansible-lint
+    image: nexus.grupocgd.com:8444/cgd/ansible
+
+  - alias: ansible-vault
+    image: nexus.grupocgd.com:8444/cgd/ansible
+    run_interaction: '-ti --rm'
+
+  - alias: awx
+    image: nexus.grupocgd.com:8444/cgd/ansible
+
+  - alias: rancher
+    image: nexus.grupocgd.com:8444/cgd/rke-cli
+    run_interaction: '-ti --rm'
+
+  - alias: rke
+    image: nexus.grupocgd.com:8444/cgd/rke-cli
+
+  - alias: helm3
+    image: nexus.grupocgd.com:8444/cgd/rke-cli
+
+  - alias: kubectl
+    image: nexus.grupocgd.com:8444/cgd/rke-cli
+    run_interaction: '-ti --rm'
+    run_envs: '-e KUBECONFIG=$KUBECONFIG'
+  
+  - alias: mkdocs
+    image: nexus.grupocgd.com:8444/cgd/mkdocs
+    run_ports: '-p 8888:8888'
+
+  - alias: jinja2
+    image: nexus.grupocgd.com:8444/cgd/jinja2
+  
+  - alias: docker-compose
+    image: nexus.grupocgd.com:8443/docker/compose
+    run_add_vols: '-v /var/run/docker.sock:/var/run/docker.sock'
+    privileged: true
+    run_user: '-u 0:0'
+
+  - alias: molecule
+    image: nexus.grupocgd.com:8444/cgd/molecule
+    run_add_vols: '-v /var/run/docker.sock:/var/run/docker.sock'
+    privileged: true
+    run_user: '-u 0:0'
+    run_envs: '-e REGISTRY_USER -e REGISTRY_PASS'
+
+  - alias: cookiecutter
+    image: nexus.grupocgd.com:8444/cgd/cookiecutter
+    run_interaction: '-ti --rm'
+  
+  - alias: k3d
+    image: nexus.grupocgd.com:8444/cgd/rke-cli
+    run_add_vols: '-v /var/run/docker.sock:/var/run/docker.sock'
+    run_interaction: '-ti --rm'
+
+defaults:
+  run_interaction: '-i --rm'
+  run_user: '-u `id -u`:`id -g`'
+  run_vols: '-v $HOME:$HOME -v /tmp:/tmp -v `echo "/$(echo "$PWD" | cut -d "/" -f2)"`:`echo "/$(echo "$PWD" | cut -d "/" -f2)"`'
+  run_workdir: '-w $PWD'
+  run_envs: '-e HOME=$HOME'
+  image: nexus.grupocgd.com:8444/cgd/centos7
+  run_ports: ''
+  run_add_vols: ''
