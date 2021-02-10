@@ -12,11 +12,11 @@ GITLAB_TOKEN='PRIVATE-TOKEN: CEsFfgiEYpQtDj99Ez17'
 mkdir -p $TOOLKIT_CONFIG
 
 # Get toolkit template
-curl -k --header "${GITLAB_TOKEN}" https://gitlab.grupocgd.com/api/v4/projects/22815162/repository/files/toolkit.j2/raw?ref=master \
+curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.j2/raw?ref=master \
 -o $TOOLKIT_CONFIG/toolkit.j2
 
 # Get toolkit configuration
-curl -k --header "${GITLAB_TOKEN}" https://gitlab.grupocgd.com/api/v4/projects/22815162/repository/files/toolkit.yaml/raw?ref=master \
+curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.yaml/raw?ref=master \
 -o $TOOLKIT_CONFIG/toolkit.yaml
 
 # Setup toolkit
