@@ -9,17 +9,17 @@ tools:
     image: docker.io/projectatomic/dockerfile-lint:latest
 
   - alias: ansible
-    image: nexus.grupocgd.com:8444/cgd/ansible
+    image: tmcmm/ansible
 
   - alias: ansible-playbook
-    image: nexus.grupocgd.com:8444/cgd/ansible
+    image: tmcmm/ansible
     run_user: ''
 
   - alias: helm3
-    image: raesene/alpine-containertools
+    image: tmcmm/helm3
 
   - alias: kubectl
-    image: raesene/alpine-containertools
+    image: tmcmm/helm3
     run_interaction: '-ti --rm'
     run_envs: '-e KUBECONFIG=$KUBECONFIG'
   
@@ -27,13 +27,13 @@ tools:
     image: tmcmm/jinja2
   
   - alias: docker-compose
-    image: 
+    image: tmcmm/docker-compose
     run_add_vols: '-v /var/run/docker.sock:/var/run/docker.sock'
     privileged: true
     run_user: '-u 0:0'
 
   - alias: netdebug  
-    image: tmcmmregistry.azurecr.io/tmcmmnetdebug
+    image: tmcmm/netdebug
     run_interaction: '-ti --rm'
 
 defaults:
