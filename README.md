@@ -25,8 +25,8 @@ Protocols: dict file ftp ftps gopher http https imap imaps ldap ldaps pop3 pop3s
 Features: AsynchDNS GSS-Negotiate IDN IPv6 Largefile NTLM NTLM_WB SSL libz unix-sockets
 
 # Verificar docker
-$ docker run --rm nexus.grupocgd.com:8444/cgd/hello-world
-Hello CGD from docker
+$ docker run --rm hello-world
+
 ```
 
 ### Instalação
@@ -34,7 +34,7 @@ Hello CGD from docker
 A instalação é efetuada executando o script setup.sh 
 
 ```
-bash <(curl --header 'PRIVATE-TOKEN: <your private token>' 'https://gitlab.grupocgd.com/api/v4/projects/661/repository/files/setup.sh/raw?ref=master')
+bash <(curl --header 'PRIVATE-TOKEN: <your private token>' 'https://gitlab.com/api/v4/projects/**id_project**/repository/files/setup.sh/raw?ref=master')
 ```
 
 O "private token" pode ser obtido no gitlab nas configurações da tua conta (User Settings > Access Tokens - permissão read_repository)
@@ -48,7 +48,7 @@ Client Version: version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.0", GitCom
 
 ## Configuração
 
-A configuração do ToolKit deve ser efetuada no repositório git [ToolKit](https://gitlab.grupocgd.com/ast/tools/toolkit):
+A configuração do ToolKit deve ser efetuada no repositório git [ToolKit](https://gitlab.com/tmcmm/toolkit.git):
 
 * toolkit.yaml - O Yaml contem a configuração das tools e respetivos defaults
     * alias -> nome da tool e comando utilizado para executar
@@ -69,7 +69,7 @@ Existe uma secção de "Defaults" para definir os parâmetros por defeito para t
 Sempre o toolkit.yaml ou outro ficheiro do projeto for alterado podemos atualizar no sistema recorrendo ao mesmo script de instalação
 
 ```
-bash <(curl --header 'PRIVATE-TOKEN: <your private token>' 'https://gitlab.grupocgd.com/api/v4/projects/661/repository/files/setup.sh/raw?ref=master')
+bash <(curl --header 'PRIVATE-TOKEN: <your private token>' 'https://gitlab.com/api/v4/projects/**id_project**/repository/files/setup.sh/raw?ref=master')
 ``` 
 
 ## Listar as tools existentes
@@ -79,7 +79,3 @@ Para sabermos as tools existentes- escrever list no terminal
 ## Versionamento
 
 Utilizamos [SemVer](http://semver.org/) para versionamento.
-
-## Autores
-
-* **Rui Alves** - *Initial work* - [ToolKit](https://gitlab.grupocgd.com/ast/tools/toolkit)
