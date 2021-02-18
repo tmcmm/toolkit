@@ -2,38 +2,38 @@
 
 tools:
   - alias: mvn
-    image: tmcmm/maven
+    image: docker.io/tmcmm/maven:v1
     run_envs: '-e HOME=$HOME -e MAVEN_CONFIG=$HOME'
 
   - alias: dockerfile_lint
     image: docker.io/projectatomic/dockerfile-lint:latest
 
   - alias: ansible
-    image: tmcmm/ansible
+    image: docker.io/tmcmm/ansible:v1
 
   - alias: ansible-playbook
-    image: tmcmm/ansible
+    image: docker.io/tmcmm/ansible:v1
     run_user: ''
 
   - alias: helm3
-    image: tmcmm/helm3
+    image: docker.io/tmcmm/helm3:v1
 
   - alias: kubectl
-    image: tmcmm/helm3
+    image: docker.io/tmcmm/helm3:v1
     run_interaction: '-ti --rm'
     run_envs: '-e KUBECONFIG=$KUBECONFIG'
   
   - alias: jinja2
-    image: tmcmm/jinja2
+    image: docker.io/tmcmm/jinja2:v1
   
   - alias: docker-compose
-    image: tmcmm/docker-compose
+    image: docker.io/tmcmm/docker-compose:v1
     run_add_vols: '-v /var/run/docker.sock:/var/run/docker.sock'
     privileged: true
     run_user: '-u 0:0'
 
   - alias: netdebug  
-    image: tmcmm/netdebug
+    image: docker.io/tmcmm/netdebug:v1
     run_interaction: '-ti --rm'
 
 defaults:
