@@ -15,7 +15,7 @@ tools:
     image: docker.io/tmcmm/ansible:v1
     run_user: ''
 
-  - alias: helm3
+  - alias: helm
     image: docker.io/tmcmm/helm3:v1
 
   - alias: kubectl
@@ -35,6 +35,7 @@ tools:
   - alias: netdebug  
     image: docker.io/tmcmm/netdebug:v1
     run_interaction: '-ti --rm'
+    command: '/bin/sh'
 
 defaults:
   run_interaction: '-i --rm'
