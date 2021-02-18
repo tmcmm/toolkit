@@ -24,7 +24,7 @@ cat $TOOLKIT_CONFIG/toolkit.yaml | docker run -i \
 -u `id -u`:`id -g` -v $HOME:$HOME -v /tmp:/tmp -v `echo "/$(echo "$PWD" | cut -d "/" -f2)"`:`echo "/$(echo "$PWD" | cut -d "/" -f2)"` \
  -w $PWD \
 -e HOME=$HOME  \
-tmcmmregistry.azurecr.io/tmcmmjinja2:v1 jinja2 --format=yaml  $TOOLKIT_CONFIG/toolkit.j2 -o $TOOLKIT_CONFIG/toolkit.env
+ tmcmm/jinja2 jinja2 --format=yaml  $TOOLKIT_CONFIG/toolkit.j2 -o $TOOLKIT_CONFIG/toolkit.env
 
 # Persist toolkit into the environment
 grep -qxF ". $TOOLKIT_CONFIG/toolkit.env" $HOME/.bashrc || echo ". $TOOLKIT_CONFIG/toolkit.env" >> $HOME/.bashrc
