@@ -73,14 +73,14 @@ bash <(curl --header 'PRIVATE-TOKEN: <your private token>' 'https://gitlab.com/a
 ``` 
 
 ### Relativo ao Ansible será necessário criar um ficheiro para as credenciais de acesso ao portal
-
+```
 cat $HOME/.azure/credentials
 [default]
 subscription_id=10dfa491-****-****-a4ee-9aeb49b8c00e
 client_id=db93c95c-****-4cb7-****-773baa4cddef
 secret=BBFJ2dMDsbuj8f***p.O_-*******-iKAeM
 tenant=72f988bf-****-41af-****-2d7cd011db47
-
+```
 
 ## Listar as tools existentes
 
