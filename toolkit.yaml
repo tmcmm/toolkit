@@ -9,10 +9,10 @@ tools:
     image: docker.io/projectatomic/dockerfile-lint:latest
 
   - alias: ansible
-    image: docker.io/tmcmm/ansible:v1
+    image: docker.io/tmcmm/ansible:v6
 
   - alias: ansible-playbook
-    image: docker.io/tmcmm/ansible:v1
+    image: docker.io/tmcmm/ansible:v6
     run_user: ''
 
   - alias: helm
