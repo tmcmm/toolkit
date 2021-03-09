@@ -38,8 +38,10 @@ tools:
     command: '/bin/sh'
 
   - alias: az
-    image: docker run -it mcr.microsoft.com/azure-cli
-    
+    image: mcr.microsoft.com/azure-cli
+    run_interaction: '-ti --rm'
+
+
 defaults:
   run_interaction: '-i --rm'
   run_user: '-u `id -u`:`id -g`'
