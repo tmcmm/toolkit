@@ -44,7 +44,8 @@ tools:
   - alias: artillary
     image: azch/artillery
     run_envs: '-e LOADTEST_API_ENDPOINT=$LOADTEST_API_ENDPOINT'
-    run_interaction: '-ti --rm quick -r 500 -d 120 $LOADTEST_API_ENDPOINT'
+    run_interaction: '-ti --rm'
+    command: 'quick -r 500 -d 120 $LOADTEST_API_ENDPOINT'
 
 
 defaults:
