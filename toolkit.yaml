@@ -41,6 +41,11 @@ tools:
     image: mcr.microsoft.com/azure-cli
     run_interaction: '-ti --rm'
 
+  - alias: artillary
+    image: azch/artillery
+    run_envs: '-e LOADTEST_API_ENDPOINT=$LOADTEST_API_ENDPOINT'
+    run_interaction: 'quick -r 500 -d 120 $LOADTEST_API_ENDPOINT'
+
 
 defaults:
   run_interaction: '-i --rm'
