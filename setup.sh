@@ -6,7 +6,6 @@
 
 # Definição de variáveis
 TOOLKIT_CONFIG=$HOME/.toolkit
-GITLAB_TOKEN='PRIVATE-TOKEN: CEsFfgiEYpQtDj99Ez17'
 
 # Create ToolKit configuration folder
 mkdir -p $TOOLKIT_CONFIG
