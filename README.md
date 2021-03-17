@@ -5,7 +5,7 @@ Toolkit centralizes the administration and debugging tools inside docker contain
 ## How to
 These instructions allow to setup an environment withouth the need to install these setup tools.
 
-### Pré-requisitos
+### Pre-requirements
 
 - SO: Linux .
 - Having curl installed.
