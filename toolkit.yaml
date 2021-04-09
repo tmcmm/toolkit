@@ -39,7 +39,7 @@ tools:
 
   - alias: mkdocs
     image: docker.io/tmcmm/mkdocs:v1
-    command: 'mkdocs serve -a 0.0.0.0:8080'
+  #  command: 'mkdocs serve -a 0.0.0.0:8080'
 
   - alias: az
     image: mcr.microsoft.com/azure-cli
