@@ -11,12 +11,12 @@ TOOLKIT_CONFIG=$HOME/.toolkit
 mkdir -p $TOOLKIT_CONFIG
 
 # Get toolkit template
-curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.j2/raw?ref=master \
--o $TOOLKIT_CONFIG/toolkit.j2
+#curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.j2/raw?ref=master \
+#-o $TOOLKIT_CONFIG/toolkit.j2
 
 # Get toolkit configuration
-curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.yaml/raw?ref=master \
--o $TOOLKIT_CONFIG/toolkit.yaml
+#curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.yaml/raw?ref=master \
+#-o $TOOLKIT_CONFIG/toolkit.yaml
 
 # Setup toolkit
 cat $TOOLKIT_CONFIG/toolkit.yaml | docker run -i \
