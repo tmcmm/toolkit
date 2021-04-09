@@ -9,10 +9,15 @@ TOOLKIT_CONFIG=$HOME/.toolkit
 
 # Create ToolKit configuration folder
 mkdir -p $TOOLKIT_CONFIG
-
 # Get toolkit template
 #curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.j2/raw?ref=master \
 #-o $TOOLKIT_CONFIG/toolkit.j2
+
+curl -k -H 'Accept: application/vnd.github.v3.raw' 'https://api.github.com/repos/tmcmm/toolkit/contents/toolkit.j2' \
+-o $TOOLKIT_CONFIG/toolkit.j2
+
+curl -k -H 'Accept: application/vnd.github.v3.raw' 'https://api.github.com/repos/tmcmm/toolkit/contents/toolkit.yaml' \
+-o $TOOLKIT_CONFIG/toolkit.yaml
 
 # Get toolkit configuration
 #curl -k --header "${GITLAB_TOKEN}" https://gitlab.com/api/v4/projects/22815162/repository/files/toolkit.yaml/raw?ref=master \
